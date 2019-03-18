@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -67,6 +68,7 @@ public class MyKeyWallet extends AppCompatActivity {
                 gson = new Gson();
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("user_id", StaticValues.login_id);
+
 
                 String data = gson.toJson(jsonObject);
 

@@ -77,35 +77,6 @@ public class MyKeyListAdapter extends BaseAdapter {
             txv_remain_tail.setText("회 남음");
         }
 
-        final String doorlock_name = myKey.getKeyName();
-        final String manager_user_name = myKey.getKeyManager();
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "http://192.168.0.5:9090/android";
-                gson = new Gson();
-                JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("doorlock_name", doorlock_name);
-                jsonObject.addProperty("manager_user_id", manager_user_name);
-
-                String data = "";
-                AndroidAsyncTask androidAsyncTask = new AndroidAsyncTask(url, data) {
-
-                    @Override
-                    public void inOnPostExecute(String returnedJson) {
-
-                        Intent intent = new Intent(applicationContext, MyKeyManagement.class);
-                        intent.putExtra("MyKeyManagementJson", returnedJson);
-                        applicationContext.startActivity(intent);
-
-                    }
-                };
-
-                androidAsyncTask.execute();
-
-            }
-        });
-
         return convertView;
     }
 }

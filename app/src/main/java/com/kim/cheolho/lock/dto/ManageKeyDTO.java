@@ -2,18 +2,18 @@ package com.kim.cheolho.lock.dto;
 
 public class ManageKeyDTO {
     private String keyName;
-    private int borrowNum;
+    private int givenNum;
 
-    public ManageKeyDTO(String keyName, int borrowNum) {
+    public ManageKeyDTO(String keyName, int givenNum) {
         this.keyName = keyName;
-        this.borrowNum = borrowNum;
+        this.givenNum = givenNum;
     }
 
     public String getKeyName() {
         return keyName;
     }
 
-    public int getBorrowNum() {
-        return borrowNum;
+    public int getGivenNum() {
+        return givenNum;
     }
 }

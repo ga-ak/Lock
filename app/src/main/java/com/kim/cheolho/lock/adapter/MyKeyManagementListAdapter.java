@@ -58,7 +58,7 @@ public class MyKeyManagementListAdapter extends BaseAdapter {
         img_man_thumb.setImageResource(R.drawable.ic_launcher_background);
         img_man_menu.setImageResource(R.drawable.menu);
         txv_man_keyName.setText(myKeyManagement.getKeyName());
-        txv_man_borrowNum.setText(myKeyManagement.getBorrowNum()+"명 대여중");
+        txv_man_borrowNum.setText(myKeyManagement.getGivenNum()+"명 대여중");
         return convertView;
     }
 }
