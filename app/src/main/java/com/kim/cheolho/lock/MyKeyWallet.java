@@ -3,6 +3,7 @@ package com.kim.cheolho.lock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -78,7 +79,8 @@ public class MyKeyWallet extends AppCompatActivity {
 
                         Intent intent2 = new Intent(getApplicationContext(), MyKeyManagement.class);
 
-                        intent2.putExtra("ToManagement", returnedJson);
+                        intent2.putExtra("toManagement", returnedJson);
+                        Log.v("이거", returnedJson);
 
                         startActivity(intent2);
 
