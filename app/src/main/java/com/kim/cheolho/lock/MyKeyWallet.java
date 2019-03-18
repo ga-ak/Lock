@@ -62,7 +62,7 @@ public class MyKeyWallet extends AppCompatActivity {
 
             case R.id.menu2:
 
-                String url = StaticValues.url + "/";
+                String url = StaticValues.url + "/manage";
 
                 gson = new Gson();
                 JsonObject jsonObject = new JsonObject();

@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String url = StaticValues.url + "/android/login";
+                String url = StaticValues.url + "/login";
 
                 String user_id = edt_login_id.getText().toString();
                 String user_pw = edt_login_pw.getText().toString();
