@@ -26,7 +26,7 @@ public class RequestHttpURLConnection {
             URL url = new URL(_url);
             urlConn = (HttpURLConnection) url.openConnection();
             // [2-1] url 설정
-            // TODO: url 변경하기
+
             urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : POST
             urlConn.setRequestProperty("Accept-Charset", "UTF-8"); // Accent-Charset 설정
             urlConn.setRequestProperty("content-type", "application/json"); // Header

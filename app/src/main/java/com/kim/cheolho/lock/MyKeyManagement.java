@@ -54,10 +54,11 @@ public class MyKeyManagement extends AppCompatActivity {
 
                 gson = new Gson();
                 JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("user_id", user_id);
                 jsonObject.addProperty("doorlock_name", doorlock_name);
+                jsonObject.addProperty("user_id", user_id);
 
-                String url = StaticValues.url + "/"; // TODO: url 수정
+
+                String url = StaticValues.url + "/manage/user"; // TODO: url 수정
                 String data = gson.toJson(jsonObject);
 
                 AndroidAsyncTask androidAsyncTask = new AndroidAsyncTask(url, data) {
