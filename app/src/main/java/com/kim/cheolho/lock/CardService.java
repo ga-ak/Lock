@@ -76,11 +76,8 @@ public class CardService extends HostApduService {
         // send the loyalty card account number, followed by a SELECT_OK status trailer (0x9000).`
 
         if (Arrays.equals(SELECT_APDU, commandApdu)) {
-            String account = "test";
-            byte[] accountBytes = account.getBytes();
 
-            //sendResponseApdu(ConcatArrays(accountBytes, SELECT_OK_SW));
-            return ConcatArrays(accountBytes, SELECT_OK_SW);
+            return SELECT_OK_SW;
 
         } else if (Arrays.equals(NFC_ADDRESS, cutByteTail(commandApdu))) {
             // todo : nfc 주소를 받은 경우 코드 작성
@@ -89,7 +86,7 @@ public class CardService extends HostApduService {
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("nfc", ByteArrayToHexString(cutByteNfc(commandApdu)));
             String json = gson.toJson(jsonObject);
-            String url = "http://192.168.0.5:9090/android";
+            String url = "http://192.168.1.2:9090/android";
             String data = json;
 
             if (!isTaskStarted) {
