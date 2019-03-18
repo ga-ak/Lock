@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class MyKeyUserManagement extends AppCompatActivity {
     Gson gson;
     ListView listView;
+    String doorlock_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MyKeyUserManagement extends AppCompatActivity {
 
         Intent intent = getIntent();
         String json = intent.getStringExtra("ToMyKeyUserManagement");
+        doorlock_name = intent.getStringExtra("doorlock_name");
 
         gson = new Gson();
         JsonParser jsonParser1 = new JsonParser();
@@ -38,7 +40,7 @@ public class MyKeyUserManagement extends AppCompatActivity {
 
         ArrayList<ManageUserDTO> manageUserDTOS = manageUserListDTO.getManageUserDTOS();
 
-        MyKeyUserManagementAdapter myKeyUserManagementAdapter = new MyKeyUserManagementAdapter(getApplicationContext(), manageUserDTOS);
+        MyKeyUserManagementAdapter myKeyUserManagementAdapter = new MyKeyUserManagementAdapter(getApplicationContext(), manageUserDTOS, doorlock_name);
 
         listView.setAdapter(myKeyUserManagementAdapter);
 

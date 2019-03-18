@@ -16,7 +16,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/txv_user_man_keyName"
+        android:id="@+id/txv_user_man_userId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -38,8 +38,8 @@
         android:text="TextView"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txv_user_man_keyName"
-        app:layout_constraintTop_toBottomOf="@+id/txv_user_man_keyName"
+        app:layout_constraintStart_toStartOf="@+id/txv_user_man_userId"
+        app:layout_constraintTop_toBottomOf="@+id/txv_user_man_userId"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
@@ -51,5 +51,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
+
+    <Button
+        android:id="@+id/btn_user_man_revoke"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:text="키 회수하기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/img_user_man_menu"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

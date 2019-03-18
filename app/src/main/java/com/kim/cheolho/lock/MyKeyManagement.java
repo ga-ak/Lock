@@ -49,7 +49,7 @@ public class MyKeyManagement extends AppCompatActivity {
 
                 TextView tv_man_keyName = view.findViewById(R.id.txv_man_keyName);
 
-                String doorlock_name = tv_man_keyName.getText().toString();
+                final String doorlock_name = tv_man_keyName.getText().toString();
                 String user_id = StaticValues.login_id;
 
                 gson = new Gson();
@@ -58,7 +58,7 @@ public class MyKeyManagement extends AppCompatActivity {
                 jsonObject.addProperty("user_id", user_id);
 
 
-                String url = StaticValues.url + "/manage/user"; // TODO: url 수정
+                String url = StaticValues.url + "/manage/user";
                 String data = gson.toJson(jsonObject);
 
                 AndroidAsyncTask androidAsyncTask = new AndroidAsyncTask(url, data) {
@@ -67,6 +67,7 @@ public class MyKeyManagement extends AppCompatActivity {
 
                         Intent intent1 = new Intent(getApplicationContext(), MyKeyUserManagement.class);
                         intent1.putExtra("ToMyKeyUserManagement", returnedJson);
+                        intent1.putExtra("doorlock_name", doorlock_name);
                         startActivity(intent1);
                         finish();
 
