@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
 
                 String url = StaticValues.url + "/login";
 
-                String user_id = edt_login_id.getText().toString();
+                final String user_id = edt_login_id.getText().toString();
                 String user_pw = edt_login_pw.getText().toString();
 
                 gson = new Gson();
@@ -57,11 +57,13 @@ public class Login extends AppCompatActivity {
                         JsonElement jsonElement = jsonParser.parse(returnedJson).getAsJsonObject();
                         LoginStatusDTO loginStatusDTO = gson.fromJson(jsonElement, LoginStatusDTO.class);
                         if (loginStatusDTO.isLoged()) {
+                            StaticValues.login_id = user_id;
                             Intent intent = new Intent(getApplicationContext(), MyKeyWallet.class);
                             intent.putExtra("toMyKeyWallet", returnedJson);
                             startActivity(intent);
                             finish();
                         } else {
+                            StaticValues.login_id = null;
                             Toast.makeText(Login.this, "로그인 실패...", Toast.LENGTH_SHORT).show();
                             return;
                         }

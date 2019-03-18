@@ -74,33 +74,37 @@ public class CardService extends HostApduService {
     public byte[] processCommandApdu(byte[] commandApdu, Bundle extras) {
         // If the APDU matches the SELECT AID command for this service,
         // send the loyalty card account number, followed by a SELECT_OK status trailer (0x9000).`
+        if (StaticValues.login_id != null) {
+            if (Arrays.equals(SELECT_APDU, commandApdu)) {
 
-        if (Arrays.equals(SELECT_APDU, commandApdu)) {
+                return SELECT_OK_SW;
 
-            return SELECT_OK_SW;
+            } else if (Arrays.equals(NFC_ADDRESS, cutByteTail(commandApdu))) {
+                // todo : nfc 주소를 받은 경우 코드 작성
 
-        } else if (Arrays.equals(NFC_ADDRESS, cutByteTail(commandApdu))) {
-            // todo : nfc 주소를 받은 경우 코드 작성
+                Gson gson = new Gson();
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("user_id", StaticValues.login_id);
+                jsonObject.addProperty("nfc", ByteArrayToHexString(cutByteNfc(commandApdu)));
+                String json = gson.toJson(jsonObject);
+                String url = "http://192.168.1.2:9090/android";
+                String data = json;
 
-            Gson gson = new Gson();
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("nfc", ByteArrayToHexString(cutByteNfc(commandApdu)));
-            String json = gson.toJson(jsonObject);
-            String url = "http://192.168.1.2:9090/android";
-            String data = json;
+                if (!isTaskStarted) {
+                    isTaskStarted = true;
+                    MyAsyncTask myAsyncTask = new MyAsyncTask(url, data);
+                    myAsyncTask.execute();
+                }
 
-            if (!isTaskStarted) {
-                isTaskStarted = true;
-                MyAsyncTask myAsyncTask = new MyAsyncTask(url, data);
-                myAsyncTask.execute();
+
+                // todo : 서버에서 키 값을 받아와 전송하는 코드 작성
+                return HexStringToByteArray(receivedKey);
+            }else {
+                return UNKNOWN_CMD_SW;
             }
-
-
-            // todo : 서버에서 키 값을 받아와 전송하는 코드 작성
-            return HexStringToByteArray(receivedKey);
-        }else {
-            return UNKNOWN_CMD_SW;
         }
+        return UNKNOWN_CMD_SW;
+
     }
     // END_INCLUDE(processCommandApdu)
 
