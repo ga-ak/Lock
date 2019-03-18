@@ -11,8 +11,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.kim.cheolho.lock.adapter.MyKeyListAdapter;
 import com.kim.cheolho.lock.dto.DoorLockDTO;
+import com.kim.cheolho.lock.dto.ManageKeyListDTO;
 import com.kim.cheolho.lock.dto.MyKeyListDTO;
 
 import java.util.ArrayList;
@@ -21,6 +25,7 @@ public class MyKeyWallet extends AppCompatActivity {
 
     private ListView lsv_myKey;
     private MyKeyListAdapter myAdapter;
+    Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,6 @@ public class MyKeyWallet extends AppCompatActivity {
 
         lsv_myKey = findViewById(R.id.lsv_myKey);
         lsv_myKey.setAdapter(myAdapter);
-
 
 
     }
@@ -57,8 +61,33 @@ public class MyKeyWallet extends AppCompatActivity {
                 break;
 
             case R.id.menu2:
-                Intent intent2 = new Intent(getApplicationContext(), MyKeyManagement.class);
-                startActivity(intent2);
+
+                String url = StaticValues.url + "/";
+
+                gson = new Gson();
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("user_id", StaticValues.login_id);
+
+                String data = gson.toJson(jsonObject);
+
+                AndroidAsyncTask androidAsyncTask = new AndroidAsyncTask(url, data) {
+                    @Override
+                    public void inOnPostExecute(String returnedJson) {
+
+                        Intent intent2 = new Intent(getApplicationContext(), MyKeyManagement.class);
+
+                        intent2.putExtra("ToManagement", returnedJson);
+
+                        startActivity(intent2);
+
+                        finish();
+
+                    }
+
+                };
+
+                androidAsyncTask.execute();
+
                 break;
         }
         return true;

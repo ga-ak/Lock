@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), MyKeyWallet.class);
                             intent.putExtra("toMyKeyWallet", returnedJson);
                             startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(Login.this, "로그인 실패...", Toast.LENGTH_SHORT).show();
                             return;
