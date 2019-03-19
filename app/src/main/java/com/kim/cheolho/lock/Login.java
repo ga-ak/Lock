@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
                 String url = StaticValues.url + "/login";
 
                 final String user_id = edt_login_id.getText().toString();
-                String user_pw = edt_login_pw.getText().toString();
+                final String user_pw = edt_login_pw.getText().toString();
 
                 gson = new Gson();
                 JsonObject jsonObject = new JsonObject();
@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity {
                         LoginStatusDTO loginStatusDTO = gson.fromJson(jsonElement, LoginStatusDTO.class);
                         if (loginStatusDTO.isLoged()) {
                             StaticValues.login_id = user_id;
+                            StaticValues.login_pw = user_pw;
                             Intent intent = new Intent(getApplicationContext(), MyKeyWallet.class);
                             intent.putExtra("toMyKeyWallet", returnedJson);
                             startActivity(intent);

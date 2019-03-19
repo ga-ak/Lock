@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".MyKeyWallet" />
 
         <!-- BEGIN_INCLUDE(CardEmulationManifest) -->
@@ -57,7 +57,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Signup" />
-        <activity android:name=".MyKeyUserManagement"></activity>
+        <activity android:name=".MyKeyUserManagement" />
+        <activity android:name=".AddDoorlock" />
+        <activity android:name=".LendKeyToUser"></activity>
     </application>
 
 </manifest>

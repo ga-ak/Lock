@@ -35,7 +35,14 @@ public class MyKeyWallet extends AppCompatActivity {
         setContentView(R.layout.activity_my_key_wallet);
 
         Intent intent = getIntent();
-        String json = intent.getStringExtra("toMyKeyWallet");
+        String json = null;
+        if (intent.getStringExtra("toMyKeyWallet") != null) {
+            json = intent.getStringExtra("toMyKeyWallet");
+        } else if (intent.getStringExtra("ToMyKeyWallet2") != null) {
+            json = intent.getStringExtra("ToMyKeyWallet2");
+        }
+
+        Log.v("debug", json);
         Gson gson = new Gson();
         MyKeyListDTO myKeyListDTO = gson.fromJson(json, MyKeyListDTO.class);
         ArrayList<DoorLockDTO> myKeyList = myKeyListDTO.getDoorLockDTOArrayList();

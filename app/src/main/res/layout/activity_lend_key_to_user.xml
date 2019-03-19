@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LendKeyToUser">
+
+    <TextView
+        android:id="@+id/tv_lend_doorlock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
+        android:text="키 빌려주기"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.095" />
+
+    <TextView
+        android:id="@+id/tv_lend_doorlock_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:text="멤 버"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spin_lend_doorlock_member"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lend_doorlock_title" />
+
+    <TextView
+        android:id="@+id/tv_lend_doorlock_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="접근 가능 횟수"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lend_doorlock_member"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/tv_lend_doorlock_member"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lend_doorlock_member" />
+
+    <TextView
+        android:id="@+id/tv_lend_doorlock_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="기 한"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lend_doorlock_number"
+        app:layout_constraintStart_toStartOf="@+id/tv_lend_doorlock_number"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lend_doorlock_number" />
+
+    <Button
+        android:id="@+id/btn_lend_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="64dp"
+        android:text="확인"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lend_doorlock_time" />
+
+    <Button
+        android:id="@+id/btn_lend_doorlock_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:text="취소"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_lend_confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_lend_confirm"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spin_lend_doorlock_member"
+        android:layout_width="214dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lend_doorlock_member"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_lend_doorlock_member"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <EditText
+        android:id="@+id/edt_lend_doorlock_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lend_doorlock_number"
+        app:layout_constraintEnd_toEndOf="@+id/spin_lend_doorlock_member"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/spin_lend_doorlock_member"
+        app:layout_constraintTop_toTopOf="@+id/tv_lend_doorlock_number"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <Button
+        android:id="@+id/btn_lend_date_choose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="날짜선택하기"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lend_doorlock_time"
+        app:layout_constraintEnd_toEndOf="@+id/edt_lend_doorlock_count"
+        app:layout_constraintStart_toStartOf="@+id/edt_lend_doorlock_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_lend_doorlock_time" />
+
+</android.support.constraint.ConstraintLayout>
