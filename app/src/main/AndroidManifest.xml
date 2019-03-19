@@ -59,7 +59,8 @@
         <activity android:name=".Signup" />
         <activity android:name=".MyKeyUserManagement" />
         <activity android:name=".AddDoorlock" />
-        <activity android:name=".LendKeyToUser"></activity>
+        <activity android:name=".LendKeyToUser" />
+        <activity android:name=".CustomDial"></activity>
     </application>
 
 </manifest>

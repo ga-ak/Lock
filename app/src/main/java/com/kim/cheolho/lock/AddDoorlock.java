@@ -3,6 +3,7 @@ package com.kim.cheolho.lock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class AddDoorlock extends AppCompatActivity {
     EditText edt_doorlock_name, edt_doorlcok_ip, edt_doorlock_pw;
     Button btn_confirm, btn_cancel;
     Gson gson;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,10 +89,6 @@ public class AddDoorlock extends AppCompatActivity {
 
                 getReadyForToMyKeyManager();
 
-                Intent intent = new Intent(getApplicationContext(), MyKeyManagement.class);
-                startActivity(intent);
-                finish();
-
             }
         });
 
@@ -113,7 +111,8 @@ public class AddDoorlock extends AppCompatActivity {
 
                 Intent intent2 = new Intent(getApplicationContext(), MyKeyManagement.class);
 
-                intent2.putExtra("ToManagement2", returnedJson);
+                intent2.putExtra("toManagement3", returnedJson);
+                Log.v("이거", returnedJson);
 
                 startActivity(intent2);
 

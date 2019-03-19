@@ -29,6 +29,7 @@ public class MyKeyWallet extends AppCompatActivity {
     private MyKeyListAdapter myAdapter;
     Gson gson;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class MyKeyWallet extends AppCompatActivity {
             json = intent.getStringExtra("toMyKeyWallet");
         } else if (intent.getStringExtra("ToMyKeyWallet2") != null) {
             json = intent.getStringExtra("ToMyKeyWallet2");
+        } else if (intent.getStringExtra("ToMyKeyWallet3") != null) {
+            json = intent.getStringExtra("ToMyKeyWallet3");
         }
 
         Log.v("debug", json);
@@ -103,5 +106,8 @@ public class MyKeyWallet extends AppCompatActivity {
         }
         return true;
     }
+
+
+
 
 }
