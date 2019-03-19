@@ -52,7 +52,7 @@ public class MyKeyUserManagementAdapter extends BaseAdapter {
         TextView tv_user_man_userId = view.findViewById(R.id.txv_user_man_userId);
         TextView tv_user_man_borrowNum = view.findViewById(R.id.txv_user_man_borrowNum);
         ImageView img_user_man_thumb = view.findViewById(R.id.img_user_man_thumb);
-        ImageView img_user_man_menu = view.findViewById(R.id.img_user_man_menu);
+        //ImageView img_user_man_menu = view.findViewById(R.id.img_user_man_menu);
         Button btn_user_man_revoke = view.findViewById(R.id.btn_user_man_revoke);
 
         ManageUserDTO manageUserDTO = (ManageUserDTO) getItem(position);
@@ -94,14 +94,14 @@ public class MyKeyUserManagementAdapter extends BaseAdapter {
         });
 
         // TODO: 클릭시 뭔가 다른 것이 필요??
-        img_user_man_menu.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-
-                return false;
-            }
-        });
+//        img_user_man_menu.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//
+//
+//                return false;
+//            }
+//        });
 
 
         return view;

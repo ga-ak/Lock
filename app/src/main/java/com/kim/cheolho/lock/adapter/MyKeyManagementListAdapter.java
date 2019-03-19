@@ -49,14 +49,14 @@ public class MyKeyManagementListAdapter extends BaseAdapter {
         }
 
         ImageView img_man_thumb = convertView.findViewById(R.id.img_man_thumb);
-        ImageView img_man_menu = convertView.findViewById(R.id.img_man_menu);
+        //ImageView img_man_menu = convertView.findViewById(R.id.img_man_menu);
         TextView txv_man_keyName = convertView.findViewById(R.id.txv_man_keyName);
         TextView txv_man_borrowNum = convertView.findViewById(R.id.txv_man_borrowNum);
 
         ManageKeyDTO myKeyManagement = (ManageKeyDTO) getItem(position);
 
         img_man_thumb.setImageResource(R.drawable.ic_launcher_background);
-        img_man_menu.setImageResource(R.drawable.menu);
+        //img_man_menu.setImageResource(R.drawable.menu);
         txv_man_keyName.setText(myKeyManagement.getKeyName());
         txv_man_borrowNum.setText(myKeyManagement.getGivenNum()+"명 대여중");
         return convertView;
