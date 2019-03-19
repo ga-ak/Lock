@@ -79,7 +79,6 @@ public class AddDoorlock extends AppCompatActivity {
 
                 androidAsyncTask.execute();
 
-
             }
         });
 

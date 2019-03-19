@@ -1,5 +1,7 @@
 package com.kim.cheolho.lock;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -23,12 +26,12 @@ import com.kim.cheolho.lock.dto.MyKeyListDTO;
 
 import java.util.ArrayList;
 
-public class MyKeyWallet extends AppCompatActivity {
+public class MyKeyWallet extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lsv_myKey;
     private MyKeyListAdapter myAdapter;
     Gson gson;
-
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class MyKeyWallet extends AppCompatActivity {
 
         lsv_myKey = findViewById(R.id.lsv_myKey);
         lsv_myKey.setAdapter(myAdapter);
+
+        lsv_myKey.setOnItemClickListener(this);
 
 
     }
@@ -108,6 +113,26 @@ public class MyKeyWallet extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(MyKeyWallet.this);
 
+        builder.setTitle("연장신청하시겠습니까?");
+        builder.setNegativeButton("OK", dialogListener);
+        builder.setPositiveButton("NO", null);
+
+        alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
+    DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int position) {
+
+            Toast.makeText(getApplicationContext(), "연장 신청이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+        }
+
+    };
 }
